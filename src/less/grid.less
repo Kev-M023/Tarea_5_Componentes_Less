@@ -1,0 +1,34 @@
+.generarCols(@prefijo, @columnas, @iteracion: 1)
+    when (@iteracion =< @columnas)
+{
+    // .col-1 { flex-basis: 100%/12*1}
+    @selector: ~'.col-@{prefijo}@{iteracion}';
+    @ancho: (100% / @columnas * @iteracion);
+
+    @{selector} {
+        flex-basis: @ancho;
+    }
+
+    .generarCols(@prefijo, @columnas, (@iteracion + 1));
+}
+
+.grid {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        [class*="col-"] {
+            flex: 0 0;
+            display: flex;
+        }
+        .generarCols('', 12);
+        @media (min-width: @media_breakpoints[tablet]) {
+            .generarCols('m-', 12);
+        }
+        @media (min-width: @media_breakpoints[desktop]) {
+            .generarCols('l-', 12);
+        }
+        @media (min-width: @media_breakpoints[wide]) {
+            .generarCols('xl-', 12);
+        }
+    }
+}

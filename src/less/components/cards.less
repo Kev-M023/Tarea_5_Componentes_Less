@@ -1,0 +1,168 @@
+.cards-section {
+    padding: @units[10] @units[4];
+
+    .cards-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto @units[8] auto;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 @units[2] 0;
+            color: @primary-tx-color;
+
+            @media (min-width: @media_breakpoints[tablet]) {
+                font-size: 2.5rem;
+            }
+        }
+
+        p {
+            color: @secondary-tx-color;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+    }
+
+    .card-holder {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: @units[6];
+        max-width: @media_breakpoints[wide];
+        margin: 0 auto;
+
+        @media (min-width: @media_breakpoints[tablet]) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: @media_breakpoints[desktop]) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card {
+            background-color: @card-bg;
+            border: 1px solid @border-color;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            .shadow-sm();
+
+            &:hover {
+                transform: translateY(-6px);
+                border-color: @accent-color;
+                .shadow-lg();
+            }
+
+            &.card-featured {
+                border-color: @accent-color;
+                position: relative;
+
+                &::before {
+                    content: "Recomendado";
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    background-color: @accent-color;
+                    color: #0f172a;
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    padding: @units[1] @units[2];
+                    border-radius: 4px;
+                    z-index: 2;
+                }
+            }
+
+            .card-header {
+                position: relative;
+                width: 100%;
+                height: 200px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover img {
+                    transform: scale(1.05);
+                }
+            }
+
+            .card-body {
+                padding: @units[5];
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+
+                .card-category {
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    color: @accent-color;
+                    margin-bottom: @units[1];
+                }
+
+                h3 {
+                    font-size: 1.35rem;
+                    font-weight: 700;
+                    margin: 0 0 @units[2] 0;
+                    color: @primary-tx-color;
+                }
+
+                p {
+                    color: @secondary-tx-color;
+                    font-size: 0.95rem;
+                    line-height: 1.6;
+                    margin: 0 0 @units[4] 0;
+                    flex-grow: 1;
+                }
+
+                .card-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: @units[1];
+                    margin-top: auto;
+
+                    span {
+                        font-size: 0.75rem;
+                        background-color: fade(@primary-bg-color, 60%);
+                        color: @secondary-tx-color;
+                        padding: @units[1] @units[2];
+                        border-radius: 4px;
+                        border: 1px solid @border-color;
+                    }
+                }
+            }
+
+            .card-footer {
+                padding: @units[4] @units[5];
+                border-top: 1px solid fade(@border-color, 60%);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .card-price {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: @primary-tx-color;
+
+                    small {
+                        font-size: 0.8rem;
+                        font-weight: 400;
+                        color: @secondary-tx-color;
+                    }
+                }
+
+                .button {
+                    padding: @units[2] @units[3];
+                    font-size: 0.85rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: @primary-bg-color;
+    color: @primary-tx-color;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: @accent-color;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    &:hover {
+        color: @accent-hover;
+    }
+}
