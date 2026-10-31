@@ -1,137 +1,41 @@
-.site-footer {
-    background-color: darken(@primary-bg-color, 3%);
-    border-top: 1px solid @border-color;
-    padding: @units[10] @units[4] @units[6] @units[4];
-    color: @secondary-tx-color;
+footer {
+    background-color: #1e293b;
+    color: #f8fafc;
+    padding: @units[5] @units[3];
 
-    .footer-container {
-        max-width: @media_breakpoints[wide];
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: @units[8];
-
-        @media (min-width: @media_breakpoints[tablet]) {
-            grid-template-columns: 2fr 1fr 1fr;
-        }
-
-        .footer-brand {
-            h3 {
-                color: @primary-tx-color;
-                font-size: 1.3rem;
-                margin: 0 0 @units[2] 0;
-
-                span {
-                    color: @accent-color;
-                }
-            }
-
-            p {
-                font-size: 0.95rem;
-                line-height: 1.6;
-                margin: 0 0 @units[4] 0;
-                max-width: 360px;
-            }
-        }
-
-        .footer-nav {
-            h4 {
-                color: @primary-tx-color;
-                font-size: 1rem;
-                margin: 0 0 @units[3] 0;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-
-                li {
-                    margin-bottom: @units[2];
-
-                    a {
-                        color: @secondary-tx-color;
-                        font-size: 0.9rem;
-                        transition: color 0.2s ease, padding-left 0.2s ease;
-
-                        &:hover {
-                            color: @accent-color;
-                            padding-left: 4px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .footer-social {
-            h4 {
-                color: @primary-tx-color;
-                font-size: 1rem;
-                margin: 0 0 @units[3] 0;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
-
-            .social-links {
-                display: flex;
-                gap: @units[2];
-                flex-wrap: wrap;
-
-                a {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: @units[2] @units[3];
-                    background-color: @secondary-bg-color;
-                    border: 1px solid @border-color;
-                    border-radius: 6px;
-                    color: @secondary-tx-color;
-                    font-size: 0.85rem;
-                    transition: all 0.2s ease;
-
-                    &:hover {
-                        background-color: @accent-color;
-                        border-color: @accent-color;
-                        color: #0f172a;
-                        transform: translateY(-2px);
-                    }
-                }
-            }
-        }
-    }
-
-    .footer-bottom {
-        max-width: @media_breakpoints[wide];
-        margin: @units[8] auto 0 auto;
-        padding-top: @units[4];
-        border-top: 1px solid fade(@border-color, 50%);
+    .footer-inner {
         display: flex;
         flex-direction: column;
+        gap: @units[3];
         align-items: center;
         text-align: center;
-        gap: @units[2];
-        font-size: 0.85rem;
 
         @media (min-width: @media_breakpoints[tablet]) {
             flex-direction: row;
             justify-content: space-between;
+            text-align: left;
         }
 
-        p {
+        .copyright {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
-        }
-
-        .legal-links {
             display: flex;
-            gap: @units[4];
+            gap: @units[3];
 
-            a {
-                color: @secondary-tx-color;
+            li a {
+                color: #cbd5e1;
+                text-decoration: none;
+                font-size: 0.9rem;
 
                 &:hover {
-                    color: @accent-color;
+                    color: #ffffff;
+                    text-decoration: underline;
                 }
             }
         }

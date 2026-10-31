@@ -1,93 +1,80 @@
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: fade(@primary-bg-color, 95%);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid @border-color;
-    .shadow-sm();
+header {
+    background-color: @primary-bg-color;
+    color: @primary-tx-color;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
-    .navbar-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: @units[3] @units[6];
-        max-width: @media_breakpoints[wide];
-        margin: 0 auto;
-
-        @media (max-width: @media_breakpoints[tablet]) {
-            flex-direction: column;
-            padding: @units[3] @units[4];
-            row-gap: @units[3];
-        }
+    @media (min-width: @media_breakpoints[desktop]) {
+        flex-direction: row;
     }
 
     .brand-section {
         display: flex;
+        column-gap: 1rem;
+        justify-content: center;
         align-items: center;
-        column-gap: @units[3];
-        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        flex: 1 0;
 
-        img {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            object-fit: cover;
-            border: 1px solid @accent-color;
+        @media (min-width: @media_breakpoints[desktop]) {
+            justify-content: start;
         }
 
-        .brand-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: @primary-tx-color;
-            letter-spacing: -0.025em;
+        img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            .shadow-sm();
+            background-color: #ffffff;
+        }
 
-            span {
-                color: @accent-color;
-            }
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.35rem;
+            color: #ffffff;
         }
     }
 
     nav {
+        width: 100%;
+
+        @media (min-width: @media_breakpoints[desktop]) {
+            width: initial;
+            padding-right: 1.5rem;
+        }
+
         ul {
-            display: flex;
-            align-items: center;
             list-style: none;
             margin: 0;
             padding: 0;
-            column-gap: @units[2];
 
-            @media (max-width: @media_breakpoints[tablet]) {
-                flex-wrap: wrap;
+            @media (min-width: @media_breakpoints[tablet]) {
+                display: flex;
                 justify-content: center;
-                column-gap: @units[1];
+                align-items: center;
             }
 
             li {
-                a {
-                    display: inline-block;
-                    padding: @units[2] @units[3];
-                    font-size: 0.95rem;
-                    font-weight: 500;
-                    color: @secondary-tx-color;
-                    border-radius: 6px;
-                    transition: all 0.2s ease;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-                    &:hover,
-                    &.active {
-                        color: @primary-tx-color;
-                        background-color: @secondary-bg-color;
-                    }
+                @media (min-width: @media_breakpoints[tablet]) {
+                    border-top: none;
                 }
 
-                .nav-cta {
-                    .button();
-                    padding: @units[2] @units[4];
-                    margin-left: @units[2];
-                    color: #0f172a;
+                a {
+                    display: block;
+                    width: 100%;
+                    text-decoration: none;
+                    padding: 0.75rem 1rem;
+                    color: #ffffff;
+                    text-align: center;
+                    font-weight: 500;
 
                     &:hover {
-                        color: #ffffff;
+                        background-color: darken(@primary-bg-color, 12%);
                     }
                 }
             }

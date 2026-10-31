@@ -1,85 +1,58 @@
 .hero-panel {
     position: relative;
-    padding: @units[10] @units[4];
-    background: linear-gradient(180deg, fade(@secondary-bg-color, 80%) 0%, @primary-bg-color 100%);
-    border-bottom: 1px solid @border-color;
+    background-color: #0f172a;
     overflow: hidden;
 
-    @media (min-width: @media_breakpoints[tablet]) {
-        padding: (@units[10] * 1.5) @units[6];
+    picture {
+        display: block;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+        }
     }
 
-    .hero-content {
-        max-width: 900px;
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-        z-index: 2;
+    .hero-card {
+        position: absolute;
+        bottom: @units[4];
+        left: @units[4];
+        background-color: rgba(255, 255, 255, 0.95);
+        color: @secondary-tx-color;
+        padding: @units[4];
+        border-radius: 4px;
+        .shadow-md();
+        max-width: 480px;
 
-        .hero-badge {
-            display: inline-block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: @accent-color;
-            background-color: fade(@accent-color, 12%);
-            padding: @units[1] @units[3];
-            border-radius: 9999px;
-            border: 1px solid fade(@accent-color, 30%);
-            margin-bottom: @units[4];
-        }
-
-        h1 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin: 0 0 @units[4] 0;
-            color: @primary-tx-color;
-
-            @media (min-width: @media_breakpoints[tablet]) {
-                font-size: 3.25rem;
-            }
-
-            .highlight {
-                color: @accent-color;
-                background: linear-gradient(135deg, @accent-color 0%, #a5f3fc 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
+        h2 {
+            margin: 0 0 @units[2] 0;
+            font-size: 1.5rem;
+            color: @primary-bg-color;
         }
 
         p {
-            font-size: 1.15rem;
-            color: @secondary-tx-color;
-            max-width: 650px;
-            margin: 0 auto @units[6] auto;
-            line-height: 1.7;
+            margin: 0 0 @units[3] 0;
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: @units[3];
-            flex-wrap: wrap;
-
-            .button {
-                padding: @units[3] @units[6];
-                font-size: 1rem;
-            }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            .button();
         }
     }
 
-    .hero-bg-decoration {
-        position: absolute;
-        top: -30%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 800px;
-        height: 500px;
-        background: radial-gradient(circle, fade(@accent-color, 15%) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 1;
+    @media (max-width: @media_breakpoints[tablet]) {
+        .hero-card {
+            position: static;
+            max-width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+        }
     }
 }
